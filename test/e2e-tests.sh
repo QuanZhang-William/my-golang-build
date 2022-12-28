@@ -34,6 +34,8 @@ trap clean EXIT
 set -ex
 set -o pipefail
 
+pip3 install pyyaml
+
 all_tests=$(echo task/*/tests)
 
 test_yaml_can_install "${all_tests}"
