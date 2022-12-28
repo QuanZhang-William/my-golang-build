@@ -35,7 +35,7 @@ set -ex
 set -o pipefail
 
 echo "this is quan's test"
-pip3 install pyyaml
+#pip3 install pyyaml
 
 all_tests=$(echo task/*/tests)
 
