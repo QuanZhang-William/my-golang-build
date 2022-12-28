@@ -69,7 +69,7 @@ function require_python_module() {
     done
 }
 
-require_python_module yaml
+#require_python_module yaml
 
 # Add sidecar resources, first argument is the file
 # following arguments are string formed json/yaml processed by yaml.safe_load
@@ -93,11 +93,11 @@ print(yaml.dump(data, default_flow_style=False))
 
 
 
-    cat ${TMPF}.read | python3 -c "$SCRIPT" "${@:2}" > ${TMPF}
+    #cat ${TMPF}.read | python3 -c "$SCRIPT" "${@:2}" > ${TMPF}
 
-    cat ${TMPF}
+    #cat ${TMPF}
 
-    rm -f ${TMPF}.read
+    #rm -f ${TMPF}.read
 }
 
 # Add an internal registry as sidecar to a task so we can upload it directly
@@ -105,7 +105,7 @@ print(yaml.dump(data, default_flow_style=False))
 function add_sidecar_registry() {
     echo 'will echo' ${1}
     cat ${1}
-    add_sidecars ${1} "{'image':${REGISTRY_IMAGE}, 'name': 'registry'}"
+    #add_sidecars ${1} "{'image':${REGISTRY_IMAGE}, 'name': 'registry'}"
 }
 
 # Run a secure registry as a sidecar to allow the tasks to push to this registry using the certs.
