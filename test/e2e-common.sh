@@ -22,7 +22,8 @@
 RELEASE_YAML=${RELEASE_YAML:-}
 
 echo $(dirname $0)
-source /Users/zhangquan/git/my-golang-build/vendor/e2e-tests.sh
+source $(dirname $0)/../vendor/e2e-tests.sh
+
 
 # Define a custom kubectl path if you like
 KUBECTL_CMD=${KUBECTL_CMD:-kubectl}

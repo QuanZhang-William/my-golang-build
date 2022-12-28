@@ -24,7 +24,7 @@ export RELEASE_YAML=https://github.com/tektoncd/pipeline/releases/download/v0.40
 cd $(git rev-parse --show-toplevel)
 echo $(dirname $0)
 
-source /Users/zhangquan/git/my-golang-build/vendor/e2e-tests.sh
+source $(dirname $0)/../vendor/e2e-tests.sh
 source $(dirname $0)/e2e-common.sh
 
 TMPF=$(mktemp /tmp/.mm.XXXXXX)
