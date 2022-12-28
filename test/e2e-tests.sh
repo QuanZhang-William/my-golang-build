@@ -36,6 +36,7 @@ set -o pipefail
 
 echo "this is quan's test"
 #pip3 install pyyaml
+install_pipeline_crd
 
 all_tests=$(echo task/*/tests)
 
