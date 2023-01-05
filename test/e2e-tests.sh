@@ -17,14 +17,14 @@
 # Configure the number of parallel tests running at the same time, start from 0
 MAX_NUMBERS_OF_PARALLEL_TASKS=7 # => 8
 
-export RELEASE_YAML=https://github.com/tektoncd/pipeline/releases/download/v0.40.0/release.yaml
+export RELEASE_YAML=https://github.com/tektoncd/pipeline/releases/download/v0.43.0/release.yaml
 
 
 
 cd $(git rev-parse --show-toplevel)
 echo $(dirname $0)
 
-source /Users/zhangquan/git/my-golang-build/vendor/e2e-tests.sh
+source $(dirname $0)/../vendor/e2e-tests.sh
 source $(dirname $0)/e2e-common.sh
 
 TMPF=$(mktemp /tmp/.mm.XXXXXX)
@@ -33,6 +33,10 @@ trap clean EXIT
 
 set -ex
 set -o pipefail
+
+echo "this is quan's test"
+#pip3 install pyyaml
+install_pipeline_crd
 
 all_tests=$(echo task/*/tests)
 
