@@ -1,4 +1,7 @@
-on: [push]
+on:
+  push:
+    branches:
+      - my-actio
 
 jobs:
   hello_world_job:
