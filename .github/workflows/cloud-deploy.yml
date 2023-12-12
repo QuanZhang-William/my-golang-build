@@ -37,7 +37,7 @@ jobs:
         uses: 'google-github-actions/create-cloud-deploy-release@v0'
         with:
           delivery_pipeline: 'web-app'
-          name: 'github-release-12-12-01'
+          name: 'github-release-12-12-02'
           region: '${{ env.REGION }}'
           description: 'A release created from GH'
           source: 'web/'
