@@ -1,0 +1,44 @@
+name: Create a release in Cloud Deploy
+
+on: [push]
+
+env:
+  PROJECT_ID: gitlab-zhangquan
+  REGION: us-central1
+
+jobs:
+  deploy:
+    # Add 'id-token' with the intended permissions for workload identity federation
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: 'actions/checkout@v3'
+
+      - name: 'Google auth'
+        id: 'auth'
+        uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: 'projects/306223470399/locations/global/workloadIdentityPools/github-pool/providers/github-provider'
+          service_account: 'my-service-account@gitlab-zhangquan.iam.gserviceaccount.com'
+
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+        with:
+          project_id: '${{ env.PROJECT_ID }}'
+
+      ## skipping build and push steps
+
+      - name: 'Create Cloud Deploy release'
+        id: 'release'
+        uses: 'google-github-actions/create-cloud-deploy-release@v0'
+        with:
+          delivery_pipeline: 'web-app'
+          name: 'github-release-12-12-01'
+          region: '${{ env.REGION }}'
+          description: 'A release created from GH'
+          source: 'web/'
+          images: 'leeroy-web=us-central1-docker.pkg.dev/gitlab-zhangquan/web-app/leeroy-web:v1,leeroy-app=us-central1-docker.pkg.dev/gitlab-zhangquan/web-app/leeroy-app:v1'

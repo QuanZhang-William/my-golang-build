@@ -1,0 +1,1 @@
+{"builds":[{"imageName":"leeroy-web","tag":"us-central1-docker.pkg.dev/gitlab-zhangquan/web-app/leeroy-web:v1@sha256:6d916fec2b6d334cf31c95dc6ce747cf27f6012a4605c8ce64eb1524728d8bc7"},{"imageName":"leeroy-app","tag":"us-central1-docker.pkg.dev/gitlab-zhangquan/web-app/leeroy-app:v1@sha256:8e13d5ff1b2636e24d8f77aea9aa329d4e2b930c8731684462dc2f1703de603c"}]}
